@@ -9,7 +9,8 @@ import numpy as np
 from datetime import date
 import sys, os
 import pandas as pd
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, BASE_DIR)
 # =============================================================================
 # 1. CONFIGURATION
 # =============================================================================
@@ -50,7 +51,7 @@ NUANCIERS_PDF = {
     "Tentmesh"  : "TENTMESH_nuancier.pdf",
     "Meaban"    : "MEABAN_nuancier.pdf",
 }
-DOSSIER_NUANCIERS  = "/Users/jadeleroux/Documents/Polytech/Stage 4A/Voilerie Tarot/Nuanciers"
+DOSSIER_NUANCIERS  = os.path.join(BASE_DIR, "Nuanciers")
 RECOUVR_STD        = 2.5
 RECOUVR_TENT       = 3.0
 OFFSET_BORDURE     = 7.0
@@ -477,7 +478,7 @@ def tracer_voile(ax, coords_fab, coords_visu, coords_mur, courbures, bords, nb_p
 with st.sidebar:
     try:
         
-        st.image("/Users/jadeleroux/Documents/Polytech/Stage 4A/Voilerie Tarot/Logo/Voilerie-Tarot-Logo-Horizontal.png", width=200)
+        st.image(os.path.join(BASE_DIR, "Logo", "Voilerie-Tarot-Logo-Horizontal.png"), width=200)
     except Exception:
         st.markdown("### Voilerie Tarot")
     st.header("⚙️ Paramètres")

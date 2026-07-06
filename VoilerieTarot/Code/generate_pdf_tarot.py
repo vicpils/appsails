@@ -271,7 +271,7 @@ def generer_pdf(nom_client, tissu, coloris, date_str, type_voile,
     story = []
 
     def create_header():
-        logo_path = "/Users/jadeleroux/Documents/Polytech/Stage 4A/Voilerie Tarot/Logo/logo_voilerie.png"
+        logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo", "logo_voilerie.png")
         logo_img = Image(logo_path, width=1.8*cm, height=1.8*cm) if os.path.exists(logo_path) else ""
         type_voile_complet = type_voile
         if pts_emm:
