@@ -699,7 +699,6 @@ with st.sidebar:
         
         retrait_str = c_val.text_input(
             "cm", 
-            value=str(defaut), 
             key=f"rf_{pt}", 
             label_visibility="collapsed"
         )
@@ -1164,6 +1163,7 @@ with col_visu:
     else:
         st.error("⚠️ Géométrie impossible — vérifiez les dimensions.")
 type_voile = {3: "Triangulaire", 4: "Quadrangulaire", 5: "Pentagonale"}.get(nb_points, "")
+L_max_lin = 0.0  # valeur par défaut, recalculée plus bas si coords_fab est disponible
 with col_recap:
     c1, c2 = st.columns(2)
     if coords_fab is not None:
